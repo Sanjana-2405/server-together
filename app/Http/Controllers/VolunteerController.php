@@ -15,7 +15,7 @@ class VolunteerController extends Controller
             'skills' => 'required|string',
             'location' => 'required|string',
             'profile_link' => 'nullable|url',
-            'email' => 'required|email|unique:volunteers,email'
+            'email' => 'nullable|email',
 
         ]);
 

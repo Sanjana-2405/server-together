@@ -1,7 +1,7 @@
 <?php
-use MongoDB\Laravel\Schema\Blueprint; // ✅ correct namespace
 
 use Illuminate\Database\Migrations\Migration;
+use Jenssegers\Mongodb\Schema\Blueprint; // Correct import
 use Illuminate\Support\Facades\Schema;
 
 class CreateVolunteersCollection extends Migration
@@ -13,11 +13,10 @@ class CreateVolunteersCollection extends Migration
      */
     public function up()
     {
-        // Creating the MongoDB collection
         Schema::connection('mongodb')->create('volunteers', function (Blueprint $collection) {
-            $collection->index('name'); // Example of adding an index
+            $collection->index('name');  // Add any indexes if needed
             $collection->string('name');
-            $collection->string('email')->unique();
+            $collection->string('email');
             $collection->timestamps();
         });
     }
@@ -29,7 +28,6 @@ class CreateVolunteersCollection extends Migration
      */
     public function down()
     {
-        // Dropping the collection
         Schema::connection('mongodb')->dropIfExists('volunteers');
     }
 }

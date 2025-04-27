@@ -17,3 +17,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Protect volunteer routes with Sanctum
 Route::middleware('auth:sanctum')->get('/volunteers', [VolunteerController::class, 'index']);
 Route::resource('volunteers', VolunteerController::class);
+
